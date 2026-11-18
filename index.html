@@ -1,0 +1,154 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="description" content="A little pause between classes. Discover Lantern Leaf Tea, a campus bubble tea shop and ITE 270 motion project.">
+  <title>Lantern Leaf Tea · A little pause, a brighter day</title>
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="styles.css">
+  <script src="script.js" defer></script>
+  <script src="motion-xray.js" defer></script>
+</head>
+<body>
+<!-- Adapted from the ITE 270 Bakery Motion Lab starter, Steps 0–10.
+     Original shop, illustration and motion choices: Lantern Leaf Tea. -->
+<a class="skip" href="#main">Skip to content</a>
+<svg class="definitions" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false">
+  <defs>
+    <symbol id="drink" viewBox="0 0 180 220">
+      <ellipse cx="90" cy="202" rx="54" ry="7" fill="#214b3d" opacity=".1"/>
+      <path d="M55 48h70l-9 143q-26 13-52 0Z" fill="var(--tea,#d0b58b)" stroke="#315446" stroke-width="2"/>
+      <path d="M61 65h58l-4 40q-27-13-57 0Z" fill="var(--milk,#f1e6ca)"/>
+      <path d="M62 111q24-18 54 0M62 126q24-16 53 0" fill="none" stroke="#fff" stroke-width="2" opacity=".25"/>
+      <g fill="var(--pearl,#4b342b)"><circle cx="73" cy="174" r="6"/><circle cx="89" cy="180" r="6"/><circle cx="105" cy="174" r="6"/><circle cx="80" cy="160" r="6"/><circle cx="99" cy="160" r="6"/></g>
+      <rect x="92" y="15" width="8" height="136" rx="3" fill="#faf6e9" stroke="#315446" stroke-width="1.5" transform="rotate(7 96 48)"/>
+      <ellipse cx="90" cy="48" rx="38" ry="7" fill="#faf6e9" stroke="#315446" stroke-width="2"/>
+      <path d="M85 124q14-21 24-10q-3 17-24 10Z" fill="#315446"/><path d="m81 132 20-16" stroke="#315446" stroke-width="2"/>
+      <path d="M61 71 66 147" stroke="#fff" stroke-width="4" opacity=".45" stroke-linecap="round"/>
+    </symbol>
+  </defs>
+</svg>
+<nav class="nav" aria-label="Main">
+  <div class="wrap nav-inner">
+    <a class="logo" href="#top"><span class="brand-mark" aria-hidden="true">✳</span> Lantern Leaf<span class="brand-tea">TEA</span></a>
+    <ul><li><a href="#menu">Our drinks</a></li><li><a href="#story">The ritual</a></li><li><a href="#visit">Find your pause</a></li></ul>
+    <button class="pill" id="pauseBtn" type="button" aria-pressed="false" disabled>Pause motion</button>
+    <button class="cart" id="cart" type="button" aria-label="Your order, 0 drinks" aria-controls="orderPanel" aria-expanded="false" disabled>
+      <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 8h16l-1 13H5ZM8 8V6a4 4 0 0 1 8 0v2" fill="none" stroke="currentColor" stroke-width="1.6"/></svg>
+      <span class="count" id="count" hidden>0</span>
+    </button>
+  </div>
+</nav>
+<section class="order-panel" id="orderPanel" aria-labelledby="orderTitle" hidden>
+  <div class="row"><h2 id="orderTitle">Your little pick-me-up</h2><button class="icon-button" id="closeOrder" aria-label="Close order" type="button">×</button></div>
+  <p id="emptyOrder">Your bag is waiting for something good.</p>
+  <ul id="orderItems"></ul>
+  <p class="order-total" id="orderTotal">Total: $0.00</p>
+  <p class="fine">Class project · a demo order, no payment or purchase.</p>
+</section>
+<main id="main">
+  <header class="hero" id="top">
+    <div class="wrap hero-grid">
+      <div class="hero-copy">
+        <p class="eyebrow"><span aria-hidden="true">●</span> YOUR BETWEEN-CLASSES HAPPY PLACE</p>
+        <!-- STEP 3 / R2: four words, 650ms each, staggered by 120ms. -->
+        <h1><span class="w" style="--i:0">Sip</span> <span class="w" style="--i:1">Something</span> <span class="w accent" style="--i:2">Bright</span> <span class="w" style="--i:3">Today.</span></h1>
+        <p class="lede">Good tea. Chewy pearls. A little moment that's just yours. Meet your new favorite stop between classes.</p>
+        <div class="ctas"><a class="btn" href="#menu">Find your favorite <span aria-hidden="true">↗</span></a><a class="link" href="#story">Made with a little care <span aria-hidden="true">→</span></a></div>
+        <div class="hero-note"><span class="tiny-leaf" aria-hidden="true">❧</span> Steeped slowly. Served with sunshine.</div>
+      </div>
+      <figure class="storefront">
+        <div class="shop-halo" aria-hidden="true"></div>
+        <!-- STEP 4 / R3: each animated group begins at its fixed, top-center hook. -->
+        <svg class="shop" viewBox="0 0 600 460" role="img" aria-labelledby="shopTitle shopDesc">
+          <title id="shopTitle">The Lantern Leaf Tea storefront</title>
+          <desc id="shopDesc">A cream tea shop with a green striped awning, a warm hanging lantern and a gently swaying leaf sign, each suspended from a top hook.</desc>
+          <defs><pattern id="stripes" width="64" height="20" patternUnits="userSpaceOnUse"><rect width="32" height="20" fill="#335b46"/><rect x="32" width="32" height="20" fill="#f3ebd6"/></pattern></defs>
+          <ellipse cx="300" cy="425" rx="265" ry="16" fill="#d5dcc1"/>
+          <path d="M80 135 110 95h380l30 40Z" fill="#315440"/>
+          <rect x="80" y="134" width="440" height="282" rx="6" fill="#ece0c5"/>
+          <rect x="80" y="134" width="440" height="16" fill="#d2c2a3"/>
+          <rect x="168" y="157" width="264" height="61" rx="4" fill="#fdf8e9" stroke="#c8b999"/>
+          <text x="300" y="183" text-anchor="middle" font-family="Georgia,serif" font-size="21" letter-spacing="2" fill="#264b3a">LANTERN LEAF</text>
+          <text x="300" y="203" text-anchor="middle" font-family="Segoe UI,sans-serif" font-size="10" letter-spacing="5" fill="#647058">T E A  &amp;  L I T T L E  J O Y S</text>
+          <path d="M68 231h464l-17 42H85Z" fill="url(#stripes)" stroke="#315440" stroke-width="2"/>
+          <path d="M85 271v11q16 16 32 0q16 16 32 0q16 16 32 0q16 16 32 0q16 16 32 0q16 16 32 0q16 16 32 0q16 16 32 0q16 16 32 0q16 16 32 0q16 16 32 0q16 16 32 0q16 16 32 0v-11Z" fill="url(#stripes)"/>
+          <rect x="111" y="300" width="216" height="92" rx="3" fill="#c7d6c0" stroke="#315440" stroke-width="6"/>
+          <path d="M183 302v88M255 302v88M113 341h212" stroke="#315440" stroke-width="4"/>
+          <path d="m122 311 47 22m22-22 47 22m25-22 47 22" stroke="#f9f4df" stroke-width="4" opacity=".5"/>
+          <rect x="355" y="294" width="102" height="121" rx="3" fill="#315440"/>
+          <rect x="367" y="305" width="78" height="64" rx="2" fill="#c7d6c0"/>
+          <text x="405" y="341" text-anchor="middle" fill="#315440" font-family="Georgia,serif" font-size="15">hello!</text>
+          <circle cx="441" cy="385" r="4" fill="#edbb68"/>
+          <path d="M101 150v-40h35M464 150v-40h34" fill="none" stroke="#264b3a" stroke-width="5"/>
+          <g class="lantern">
+            <path d="M136 110v30" stroke="#264b3a" stroke-width="3"/>
+            <rect x="114" y="138" width="44" height="10" rx="3" fill="#7c4c31"/>
+            <ellipse cx="136" cy="173" rx="29" ry="29" fill="#efb85e" stroke="#966137" stroke-width="2"/>
+            <path d="M136 146v54m-12-51q-12 25 0 47m24-47q12 25 0 47" fill="none" stroke="#d59342" stroke-width="2"/>
+            <rect x="117" y="198" width="38" height="7" rx="2" fill="#7c4c31"/>
+            <path d="M136 205v12" stroke="#966137" stroke-width="3"/>
+          </g>
+          <g class="leaf-sign">
+            <path d="M498 110v36" stroke="#264b3a" stroke-width="3"/>
+            <rect x="472" y="145" width="52" height="60" rx="22" fill="#335b46" stroke="#254635" stroke-width="2"/>
+            <path d="M484 184q-1-29 28-25q4 26-28 25Z" fill="#b3c785"/>
+            <path d="m482 190 22-24" stroke="#f5efdb" stroke-width="2"/>
+          </g>
+          <path d="M78 416h444" stroke="#30533e" stroke-width="6" stroke-linecap="round"/>
+          <g fill="#638059"><ellipse cx="63" cy="364" rx="12" ry="24" transform="rotate(-30 63 364)"/><ellipse cx="81" cy="355" rx="12" ry="25" transform="rotate(20 81 355)"/><ellipse cx="63" cy="390" rx="12" ry="20" transform="rotate(-40 63 390)"/></g>
+          <path d="M55 394h35l-5 26H60Z" fill="#ad6e4c"/>
+          <path d="M480 374h38l-5 45h-28Z" fill="#ad6e4c"/><path d="M498 378v-40m0 22q-27-23-24-34q28 0 24 34m0-11q23-27 30-17q-1 19-30 17" fill="#638059" stroke="#638059" stroke-width="2"/>
+        </svg>
+        <figcaption><span>01 / THE LITTLE SHOP</span><span>Calm. Bright. Responsive.</span></figcaption>
+      </figure>
+    </div>
+  </header>
+  <section class="band menu" id="menu" aria-labelledby="menuTitle">
+    <div class="wrap">
+      <div class="section-head"><div><p class="eyebrow">FIND YOUR KIND OF BRIGHT</p><h2 id="menuTitle">Small sips.<br>Big good mood.</h2></div><p>Tea for the study break,<br>the catch-up, the just-because.<br><span class="fine">All drinks 16 oz · demo menu</span></p></div>
+      <noscript><p class="no-js">The full menu is available below. Ordering and the changing illustration need JavaScript; no content is hidden.</p></noscript>
+      <!-- STEP 2 + 5 / R1 + R4: outer reveal wrappers keep entrance and card transforms independent. -->
+      <div class="grid">
+        <div class="reveal" style="--i:0"><article class="card" tabindex="0" aria-labelledby="jasmineTitle" data-name="Jasmine milk tea" data-price="5.50"><div class="art jasmine" aria-hidden="true"><span class="menu-tag">THE EVERYDAY FAVORITE</span><svg viewBox="0 0 180 220"><use href="#drink"/></svg></div><div class="card-copy"><h3 id="jasmineTitle">Jasmine milk tea</h3><p>Floral jasmine, creamy milk, soft little pearls. Your calm in a cup.</p><div class="row"><span class="price">$5.50</span><button class="btn small add" type="button" aria-label="Add jasmine milk tea to order" disabled>Add to order <span aria-hidden="true">+</span></button></div></div></article></div>
+        <div class="reveal" style="--i:1"><article class="card" tabindex="0" aria-labelledby="mangoTitle" data-name="Mango fruit tea" data-price="5.75"><div class="art mango" aria-hidden="true"><span class="menu-tag">A LITTLE SUNSHINE</span><svg viewBox="0 0 180 220"><use href="#drink"/></svg></div><div class="card-copy"><h3 id="mangoTitle">Mango fruit tea</h3><p>Juicy mango and green tea, with a bright squeeze of citrus.</p><div class="row"><span class="price">$5.75</span><button class="btn small add" type="button" aria-label="Add mango fruit tea to order" disabled>Add to order <span aria-hidden="true">+</span></button></div></div></article></div>
+        <div class="reveal" style="--i:2"><article class="card" tabindex="0" aria-labelledby="brownTitle" data-name="Brown sugar boba" data-price="6.00"><div class="art brown" aria-hidden="true"><span class="menu-tag">COMFORT, ON ICE</span><svg viewBox="0 0 180 220"><use href="#drink"/></svg></div><div class="card-copy"><h3 id="brownTitle">Brown sugar boba</h3><p>Warm caramel notes, fresh milk and wonderfully chewy pearls.</p><div class="row"><span class="price">$6.00</span><button class="btn small add" type="button" aria-label="Add brown sugar boba to order" disabled>Add to order <span aria-hidden="true">+</span></button></div></div></article></div>
+        <div class="reveal" style="--i:0"><article class="card" tabindex="0" aria-labelledby="matchaTitle" data-name="Matcha cloud" data-price="6.00"><div class="art matcha" aria-hidden="true"><span class="menu-tag">GREEN &amp; DREAMY</span><svg viewBox="0 0 180 220"><use href="#drink"/></svg></div><div class="card-copy"><h3 id="matchaTitle">Matcha cloud</h3><p>Earthy matcha under a soft milk layer. A gentler afternoon.</p><div class="row"><span class="price">$6.00</span><button class="btn small add" type="button" aria-label="Add matcha cloud to order" disabled>Add to order <span aria-hidden="true">+</span></button></div></div></article></div>
+        <div class="reveal" style="--i:1"><article class="card" tabindex="0" aria-labelledby="berryTitle" data-name="Berry hibiscus" data-price="5.50"><div class="art berry" aria-hidden="true"><span class="menu-tag">FRUITY LITTLE ESCAPE</span><svg viewBox="0 0 180 220"><use href="#drink"/></svg></div><div class="card-copy"><h3 id="berryTitle">Berry hibiscus</h3><p>Tart hibiscus and sweet berries. Caffeine-free, full of color.</p><div class="row"><span class="price">$5.50</span><button class="btn small add" type="button" aria-label="Add berry hibiscus to order" disabled>Add to order <span aria-hidden="true">+</span></button></div></div></article></div>
+        <div class="reveal" style="--i:2"><article class="card" tabindex="0" aria-labelledby="peachTitle" data-name="Peach oolong" data-price="5.75"><div class="art peach" aria-hidden="true"><span class="menu-tag">MEET YOUR NEW USUAL</span><svg viewBox="0 0 180 220"><use href="#drink"/></svg></div><div class="card-copy"><h3 id="peachTitle">Peach oolong</h3><p>Fragrant oolong with mellow peach. Light, lovely, made for you.</p><div class="row"><span class="price">$5.75</span><button class="btn small add" type="button" aria-label="Add peach oolong to order" disabled>Add to order <span aria-hidden="true">+</span></button></div></div></article></div>
+      </div>
+    </div>
+  </section>
+  <!-- STEP 6 OPTION A / R5. Option B removed. Baseline picture shows all ingredients. -->
+  <section class="band tint" id="story" aria-labelledby="storyTitle"><div class="wrap">
+    <p class="eyebrow">THE LITTLE RITUAL</p><h2 id="storyTitle">Good things take<br>a little steeping.</h2>
+    <div class="story">
+      <figure class="stage" id="stage">
+        <span class="stage-number" id="stageNumber" aria-hidden="true">01—03</span>
+        <svg viewBox="0 0 320 320" role="img" aria-labelledby="drinkStoryTitle"><title id="drinkStoryTitle">Tea, pearls, and milk come together in one cup</title>
+          <ellipse cx="160" cy="283" rx="83" ry="10" fill="#315440" opacity=".1"/>
+          <path d="M99 73h122l-16 193q-45 18-90 0Z" fill="#f9f5e7" stroke="#315440" stroke-width="3"/>
+          <path d="M106 114h108l-12 145q-42 16-84 0Z" fill="#bb8450"/>
+          <g class="story-pearls" fill="#49332b"><circle cx="133" cy="247" r="9"/><circle cx="158" cy="252" r="9"/><circle cx="184" cy="247" r="9"/><circle cx="144" cy="225" r="9"/><circle cx="174" cy="225" r="9"/></g>
+          <g class="story-milk"><path d="M106 114h108l-6 74q-39-31-96 0Z" fill="#f5e9ce"/><path d="M112 190q41-30 96 0" stroke="#f5e9ce" stroke-width="9" fill="none" opacity=".6"/></g>
+          <path d="M124 121 133 211" stroke="#fff" stroke-width="5" opacity=".4" stroke-linecap="round"/>
+          <path d="m174 110 8-75" stroke="#315440" stroke-width="10"/>
+          <ellipse cx="160" cy="73" rx="64" ry="10" fill="#f9f5e7" stroke="#315440" stroke-width="3"/>
+          <path d="M150 166q20-30 39-17q-4 29-39 17Z" fill="#315440"/><path d="m145 181 33-24" stroke="#315440" stroke-width="3"/>
+        </svg>
+        <figcaption class="stage-label" id="stageLabel">Tea, pearls, milk. Better together.</figcaption>
+      </figure>
+      <div class="steps">
+        <article class="step" data-step="brew"><span class="step-index">01 / THE FOUNDATION</span><h3>Brew the tea.</h3><p>It starts with fragrant jasmine leaves. We steep for a smooth, floral base—something worth slowing down for.</p></article>
+        <article class="step" data-step="pearls"><span class="step-index">02 / THE LITTLE JOY</span><h3>Add the pearls.</h3><p>A scoop of chewy boba settles at the bottom. This is the part that turns a drink into a tiny treat.</p></article>
+        <article class="step" data-step="milk"><span class="step-index">03 / BRING IT TOGETHER</span><h3>Pour the milk.</h3><p>A creamy finish softens the tea. Give it a stir, grab a friend, and make a little room in your day.</p></article>
+      </div>
+    </div>
+  </div></section>
+  <section class="band visit" id="visit" aria-labelledby="visitTitle"><div class="wrap visit-grid"><div><p class="eyebrow">MAKE A LITTLE ROOM</p><h2 id="visitTitle">Your next good<br>break starts here.</h2></div><div><p class="visit-copy">Between one class and the next.<br>After the deadline. Before the catch-up.<br>There's always time for a little tea.</p><a class="btn" href="#menu">Pick your next sip <span aria-hidden="true">↗</span></a><p class="fine">A fictional campus tea shop, made for ITE 270.<br>No real location, opening hours or online purchases.</p></div></div></section>
+</main>
+<footer class="foot"><div class="wrap"><div class="footer-top"><a class="logo" href="#top">Lantern Leaf Tea</a><p>Calm. Bright. Responsive.</p><a href="MOTION-LOG.md">Motion log ↗</a></div><div class="footer-bottom"><p>ITE 270 · Your Shop in Motion · Original SVG artwork</p><div class="motion-tools"><button class="pill" id="reduceBtn" type="button" aria-pressed="false" disabled>Use reduced motion</button><button class="pill" id="replayBtn" type="button" disabled>Replay headline</button><span class="fine" id="motionState">Motion follows your device preference.</span></div></div></div></footer>
+<div class="toast" id="toast" role="status" aria-live="polite" aria-atomic="true"></div>
+</body>
+</html>
